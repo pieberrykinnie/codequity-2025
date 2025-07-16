@@ -60,3 +60,10 @@
 - tests: N/A (schema only)
 - docs: to create docs/database-schema.md later
 - notes: Phase 2 step 7 done. Next: seed script.
+
+## 2025-07-16 02:35 – 4803492
+- scope: feat(db)
+- summary: added ts-node seed script to populate demo user, portfolio, holdings; updated root scripts and dev deps
+- tests: manual run pending (requires DATABASE_URL)
+- docs: will mention in database-schema.md
+- notes: Phase 2 step 8 complete. Next: backend CRUD edge functions.
