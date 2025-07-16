@@ -8,8 +8,8 @@
 - [ ] Mark items complete as work progresses
 
 ## 2. INGEST HACKATHON DETAILS `.cursor/hackathon.md`
-- [ ] Thoroughly read provided hackathon brief
-- [ ] Summarize all required details into `.cursor/hackathon.md`
+- [x] Thoroughly read provided hackathon brief
+- [x] Summarize all required details into `.cursor/hackathon.md`
 - [ ] Flush context tokens
 
 ## 3. BRAINSTORM PROJECT IDEA `.cursor/brainstorm.md`
