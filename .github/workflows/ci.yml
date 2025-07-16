@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, dev, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: |
+          if pnpm run | grep -q "lint"; then pnpm lint ; else echo "No lint script"; fi
+
+      - name: Unit Tests
+        run: |
+          if pnpm run | grep -q "test"; then pnpm test ; else echo "No test script"; fi
+
+      - name: Build
+        run: |
+          if pnpm run | grep -q "build"; then pnpm build ; else echo "No build script"; fi
