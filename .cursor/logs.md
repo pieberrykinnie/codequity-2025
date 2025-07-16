@@ -53,3 +53,10 @@
 - tests: playwright test passes locally (manual run)
 - docs: none yet
 - notes: Phase 1 step 6 complete. Phase 1 finished.
+
+## 2025-07-16 02:20 – e407181
+- scope: build(db)
+- summary: added Prisma schema (User, Portfolio, Holding, Alert) and root deps scripts
+- tests: N/A (schema only)
+- docs: to create docs/database-schema.md later
+- notes: Phase 2 step 7 done. Next: seed script.
