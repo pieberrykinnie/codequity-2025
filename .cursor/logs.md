@@ -18,3 +18,10 @@
 - tests: N/A
 - docs: .cursor/logs.md created
 - notes: begin Phase 0 once repo scaffolding starts.
+
+## 2025-07-16 01:05 – 2eda9d2
+- scope: chore(repo)
+- summary: initialise monorepo with pnpm workspace, base dirs, README, gitignore
+- tests: N/A
+- docs: README.md, .gitignore
+- notes: Phase 0 step 1 complete. Next: set up GitHub Actions CI (step 2).
