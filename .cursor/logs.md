@@ -46,3 +46,10 @@
 - tests: manual compile OK (no tests yet)
 - docs: none yet (to update auth & trpc guide later)
 - notes: Phase 1 steps 4 & 5 complete. Next: add Playwright smoke test (step 6).
+
+## 2025-07-16 02:05 – c2cc881
+- scope: test(web)
+- summary: add Playwright config and homepage smoke e2e test; script `test:e2e`
+- tests: playwright test passes locally (manual run)
+- docs: none yet
+- notes: Phase 1 step 6 complete. Phase 1 finished.
