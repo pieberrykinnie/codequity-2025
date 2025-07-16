@@ -14,7 +14,7 @@
 
 ## 3. BRAINSTORM PROJECT IDEA `.cursor/brainstorm.md`
 - [ ] Run at least 10 distinct research iterations using `web_search`
-- [ ] Append thought dumps per iteration with headings and queries
+- [x] Append thought dumps per iteration with headings and queries
 - [ ] Ensure: expert-level domain knowledge, review of prior winners, 5+ feasible ideas, tech up-to-date (≥ Jul 17 2025)
 - [ ] Flush context tokens
 
