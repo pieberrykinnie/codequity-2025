@@ -1,1 +1,15 @@
-{ "name": "tokenscope", "private": true, "version": "0.0.0", "packageManager": "pnpm@latest", "scripts": {} }
+{
+  "name": "tokenscope",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@latest",
+  "scripts": {
+    "prisma": "prisma"
+  },
+  "devDependencies": {
+    "prisma": "^5.4.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.4.0"
+  }
+}
