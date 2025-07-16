@@ -39,3 +39,10 @@
 - tests: N/A (app skeleton)
 - docs: none yet
 - notes: Phase 1 step 3 complete. Next: add NextAuth and tRPC setup.
+
+## 2025-07-16 01:50 – 199ed9d
+- scope: feat(web)
+- summary: add NextAuth.js GitHub provider and full tRPC v10 setup (router, API route, client provider) with hello query demo
+- tests: manual compile OK (no tests yet)
+- docs: none yet (to update auth & trpc guide later)
+- notes: Phase 1 steps 4 & 5 complete. Next: add Playwright smoke test (step 6).
