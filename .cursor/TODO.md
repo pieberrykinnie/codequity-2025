@@ -13,9 +13,9 @@
 - [ ] Flush context tokens
 
 ## 3. BRAINSTORM PROJECT IDEA `.cursor/brainstorm.md`
-- [ ] Run at least 10 distinct research iterations using `web_search`
+- [x] Run at least 10 distinct research iterations using `web_search`
 - [x] Append thought dumps per iteration with headings and queries
-- [ ] Ensure: expert-level domain knowledge, review of prior winners, 5+ feasible ideas, tech up-to-date (≥ Jul 17 2025)
+- [x] Ensure: expert-level domain knowledge, review of prior winners, 5+ feasible ideas, tech up-to-date (≥ Jul 17 2025)
 - [ ] Flush context tokens
 
 ## 4. FINALIZE PROJECT IDEA `.cursor/proposal.md`
