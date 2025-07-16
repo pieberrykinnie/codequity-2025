@@ -1,0 +1,95 @@
+# .cursorrules – TokenScope Development Guidelines (2025)
+
+These rules apply to **every commit, PR, and terminal session** in this repository. The CI pipeline enforces many of them; the rest rely on human diligence.
+
+---
+## 1. Terminal Discipline
+1. On the **first command** of a new shell or after every `cd`, always run:
+   ```bash
+   pwd && ls -a && tree -L 2 | head -n 30
+   ```
+   • Purpose: orient collaborators and create an auditable breadcrumb trail in logs.
+2. Use `pnpm` for all Node package operations (`pnpm install`, `pnpm add`, etc.). **Never** use `npm` or `yarn`.
+3. If Python appears (e.g., data scripts), initialise with `uv init && uv sync && source .venv/bin/activate`. Use `uv add` for deps.
+4. Long-running commands in demos must be run with non-interactive flags (e.g., `--yes`, `| cat`) per tool policy.
+
+---
+## 2. Project Creation & Dependency Management
+1. **Never** hand-write `package.json`, `pyproject.toml`, etc. Create them organically (`pnpm init`, `uv init`) and commit only the deltas.
+2. Before importing a **new** library, run:
+   ```
+   web_search "<lib name> documentation usage example"
+   ```
+   and link the search result in the PR description.
+3. All work happens inside a pnpm monorepo (`pnpm-workspace.yaml`). Use workspaces (`workspace:*`) for internal packages.
+4. Keep lockfiles committed; CI fails if `pnpm install --check-filenames` mutates the lockfile.
+
+---
+## 3. TypeScript Standards
+1. **TypeScript only** (no plain JS). `tsconfig.json` must enable:
+   ```json
+   {
+     "compilerOptions": {
+       "strict": true,
+       "noImplicitAny": true,
+       "exactOptionalPropertyTypes": true,
+       "module": "esnext"
+     }
+   }
+   ```
+2. Embrace modern TS features (template-literal types, `satisfies`, `as const`).
+3. Avoid `any`; prefer `unknown` with narrowing or Zod validation.
+4. For dynamic objects from agents, create **type guards** or Zod schemas.
+5. Each **non-trivial** function/class must include a JSDoc/TSDoc block with:
+   * Purpose
+   * Parameters (types)
+   * Returns (type)
+   * Throws (if any)
+
+---
+## 4. Code Style & Quality
+1. ESLint (`typescript-eslint`), Prettier, and Stylelint (for CSS) run pre-commit.
+2. Prettier config: singleQuote true, trailingComma "all", printWidth 100.
+3. Unit coverage target ≥ 85% (`vitest/jest`). PRs decreasing coverage require justification.
+4. Use Playwright for e2e; axe-core for accessibility checks.
+5. Commit messages follow **Conventional Commits**. Breaking changes must include `BREAKING CHANGE:` footer.
+
+---
+## 5. Documentation Rules
+1. **All docs live in `docs/`** (max 10 files). If a new doc would exceed the limit, refactor/merge.
+2. Update relevant docs in the **same PR** as the code change.
+3. Maintain up-to-date diagrams (Mermaid) in `docs/architecture.md` when architecture shifts.
+
+---
+## 6. Environment & Secrets
+1. Store secrets **only** in `.env` locally; commit **only** `.env.example` with placeholder keys.
+2. When a feature requires external credentials (AWS, ClearML, etc.), create/update `docs/setup.md` with step-by-step human instructions.
+3. Never echo secrets in terminal transcripts or logs.
+
+---
+## 7. AI & Agent Safety
+1. When adding a new agent tool call, include validation of external data (Zod) before processing.
+2. Log every agent span to Langfuse; sensitive data must be redacted with `REDACT` helper util.
+3. If an agent can mutate state (e.g., trading), wrap in **simulation mode** by default and require an explicit `--live` flag.
+
+---
+## 8. Testing & CI
+1. Each commit that affects logic must include tests or explicit note why not (docs-only, chore).
+2. The default test matrix (`pnpm test`, `pnpm test:e2e`) must run green locally **before** push.
+3. CI stages: lint → type-check → unit → build → e2e → deploy preview.
+4. Use dummy data for tests; never hit live APIs in unit tests (use nock/msw).
+
+---
+## 9. Logging & Progress Tracking
+1. After each successful commit, append an entry in `.cursor/logs.md` per template.
+2. At start of each dev session, review and condense older log chunks to keep file < 300 lines.
+
+---
+## 10. Miscellaneous
+1. Use descriptive branch names: `feat/<scope>`, `fix/<scope>`, `docs/<section>`.
+2. **Flush long-running chat context**: after logging progress or moving to a new major step, discard irrelevant tokens to stay within LLM limits.
+3. Prefer Vercel Edge functions or Cloudflare Workers where latency matters; keep cold-start budget < 100 ms.
+4. All images/diagrams embedded in slides must be < 1 MB and compressed via `squoosh-cli`.
+
+---
+Following `.cursorrules` is mandatory. Repeated violations may result in CI failure hooks (`husky`) that block merges until compliance is restored. Happy building! 🚀
