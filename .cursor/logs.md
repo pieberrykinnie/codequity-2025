@@ -32,3 +32,10 @@
 - tests: N/A (workflow only)
 - docs: none
 - notes: Phase 0 step 2 complete. Proceed to Phase 1 scaffold.
+
+## 2025-07-16 01:30 – b9a2541
+- scope: feat(web)
+- summary: scaffold Next.js 15 app with Tailwind, basic page component, configs
+- tests: N/A (app skeleton)
+- docs: none yet
+- notes: Phase 1 step 3 complete. Next: add NextAuth and tRPC setup.
