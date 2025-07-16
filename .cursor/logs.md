@@ -25,3 +25,10 @@
 - tests: N/A
 - docs: README.md, .gitignore
 - notes: Phase 0 step 1 complete. Next: set up GitHub Actions CI (step 2).
+
+## 2025-07-16 01:15 – cb5734a
+- scope: ci(github)
+- summary: add base GitHub Actions workflow (install, lint, test, build) using pnpm cache
+- tests: N/A (workflow only)
+- docs: none
+- notes: Phase 0 step 2 complete. Proceed to Phase 1 scaffold.
