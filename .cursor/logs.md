@@ -67,3 +67,10 @@
 - tests: manual run pending (requires DATABASE_URL)
 - docs: will mention in database-schema.md
 - notes: Phase 2 step 8 complete. Next: backend CRUD edge functions.
+
+## 2025-07-16 19:35 – b5d3464
+- scope: build(api)
+- summary: add Next.js Edge tRPC CRUD for Portfolio & Holding (prisma client, router, zod validation)
+- tests: manual API call pending (Playwright/test to follow)
+- docs: to update API reference and usage guide
+- notes: Phase 2 step 9 complete. Next: check off TODOs and extend e2e tests.
