@@ -1,1 +1,1 @@
-# codequity-2025
+# TokenScope\n\nMonorepo for CodeQuity2025 prototype.
