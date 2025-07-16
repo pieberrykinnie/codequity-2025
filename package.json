@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "packageManager": "pnpm@latest",
   "scripts": {
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "db:seed": "pnpm prisma db push --skip-generate && ts-node prisma/seed.ts"
   },
   "devDependencies": {
-    "prisma": "^5.4.0"
+    "prisma": "^5.4.0",
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.10.0"
   },
   "dependencies": {
     "@prisma/client": "^5.4.0"
